@@ -42,3 +42,5 @@ c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restauran
 c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\bin\EntityFramework.dll
 c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\bin\DataAccess.pdb
 c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\bin\EntityFramework.xml
+c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\bin\EntityFramework.SqlServer.dll
+c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\bin\EntityFramework.SqlServer.xml
