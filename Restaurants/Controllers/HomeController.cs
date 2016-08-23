@@ -12,6 +12,11 @@
             return View();
         }
 
+        public ActionResult Eatinator()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             return View();
