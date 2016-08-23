@@ -38,3 +38,7 @@ c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restauran
 c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\obj\Debug\Restaurants.csprojResolveAssemblyReference.cache
 c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\obj\Debug\Restaurants.dll
 c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\obj\Debug\Restaurants.pdb
+c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\bin\DataAccess.dll
+c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\bin\EntityFramework.dll
+c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\bin\DataAccess.pdb
+c:\users\dobrishinov\documents\visual studio 2015\Projects\Restaurants\Restaurants\bin\EntityFramework.xml
