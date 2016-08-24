@@ -2,7 +2,6 @@
 {
     using DataAccess.Entity;
     using DataAccess.Repository;
-    using Restaurants.Controllers;
     using Restautants.ViewModels.Users;
     using System.Web.Mvc;
     using ViewModels.Users;

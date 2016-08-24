@@ -63,6 +63,11 @@
             return RedirectToAction("Login", "Home");
         }
 
+        public ActionResult Admin()
+        {
+            return RedirectToAction("Index", "Admin");
+        }
+
         public ActionResult FakeAdmin()
         {
             UsersRepository userRepo = new UsersRepository();
