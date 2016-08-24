@@ -71,7 +71,15 @@
 
 
                             <form id="register-form" action="/Account/Register" method="post" role="form" style="display: none;">
-                                <input type="hidden" name="AdminStatus" value="False" />
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" name="Username" value="@Model.Register.Username" placeholder="Add your Username" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="Password" value="@Model.Register.Password" placeholder="Add your Password" required />
+                                </div>
 
                                 <div class="form-group">
                                     <label for="firstName">First Name</label>
@@ -81,16 +89,6 @@
                                 <div class="form-group">
                                     <label for="lastName">Last Name</label>
                                     <input type="text" class="form-control" name="LastName" value="@Model.Register.LastName" placeholder="Add your Last Name" required />
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control" name="Username" value="@Model.Register.Username" placeholder="Add your Username" required />
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" name="Password" value="@Model.Register.Password" placeholder="Add your Password" required />
                                 </div>
 
                                 <div class="form-group">
