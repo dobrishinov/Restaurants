@@ -4,7 +4,7 @@
     using DataAccess.Repository;
     using Models;
     using System.Web.Mvc;
-
+    using ViewModels.Common;
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -27,46 +27,62 @@
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public ActionResult Login()
+        //{
+        //    LoginOrRegisterVM model = new LoginOrRegisterVM();
+        //    return View(model);
+        //}
+        ///*
+         
+        //     [HttpGet]
+        //public ActionResult Register(int? id)
+        //{
+        //    UsersEditVM model = new UsersEditVM();
+        //    return View(model);
+        //}
 
-        [HttpPost]
-        public ActionResult Login(string username, string password)
-        {
-            AuthenticationManager.Authenticate(username, password);
+        //[HttpPost]
+        //public ActionResult Register(FormCollection collection)
+        //{
+        //    UsersEditVM model = new UsersEditVM();
+        //    TryUpdateModel(model);
+        //    if (ModelState.IsValid)
+        //    {
+        //        UserEntity entity = new UserEntity();
+        //        PopulateEntity(entity, model);
+        //        return RedirectToAction("Login", "Home");
+        //    }
+        //    return View(model);
+        //}
+            
+        // */
+        //[HttpPost]
+        //public ActionResult Login(string username, string password)
+        //{
+        //    AuthenticationManager.Authenticate(username, password);
 
-            if (AuthenticationManager.LoggedUser == null)
-            {
-                ModelState.AddModelError("authenticationFailed", "Wrong username or password!");
-                ViewData["username"] = username;
+        //    if (AuthenticationManager.LoggedUser == null)
+        //    {
+        //        ModelState.AddModelError("authenticationFailed", "Wrong username or password!");
+        //        ViewData["username"] = username;
 
-                return View();
-            }
+        //        return View();
+        //    }
+        //    return RedirectToAction("Index", "Home");
+        //}
 
+        //public ActionResult Logout()
+        //{
+        //    if (AuthenticationManager.LoggedUser == null)
+        //    {
+        //        return RedirectToAction("Login", "Home");
+        //    }
 
+        //    AuthenticationManager.Logout();
 
-            return RedirectToAction("Index", "Home");
-        }
-
-        public ActionResult Logout()
-        {
-            if (AuthenticationManager.LoggedUser == null)
-            {
-                return RedirectToAction("Login", "Home");
-            }
-
-            AuthenticationManager.Logout();
-
-            return RedirectToAction("Login", "Home");
-        }
-
-        public ActionResult Admin()
-        {
-            return RedirectToAction("Index", "Admin");
-        }
+        //    return RedirectToAction("Login", "Home");
+        //}
 
         public ActionResult FakeAdmin()
         {

@@ -1,7 +1,7 @@
 ﻿<ul class="nav navbar-nav navbar-right">
     @if (Restaurants.Models.AuthenticationManager.LoggedUser == null)
     {
-        <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Login">Log in</a></li>
+        <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Account/Login">Log in</a></li>
     }
     else
     {
@@ -17,7 +17,7 @@
                     <li><a href="#">Separated link</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">One more separated link</a></li>
-                    <li><a href="/Home/Logout">Log out</a></li>
+                    <li><a href="/Account/Logout">Log out</a></li>
                 </ul>
             </li>
         }
@@ -33,7 +33,7 @@
                     <li><a href="#">Separated link</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">One more separated link</a></li>
-                    <li><a href="/Home/Logout">Log out</a></li>
+                    <li><a href="/Account/Logout">Log out</a></li>
                 </ul>
             </li>
         }

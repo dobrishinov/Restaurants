@@ -23,7 +23,7 @@ select
     max-width: 280px;
 }*/
 
-.navbar-wrapper .navbar {
+.navbar-wrapper, .navbar{
     border-radius: 4px;
 }
 
