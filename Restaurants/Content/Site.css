@@ -186,3 +186,7 @@ select
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
+
+.accountImage {
+    margin: 2% 21% 5%;
+}

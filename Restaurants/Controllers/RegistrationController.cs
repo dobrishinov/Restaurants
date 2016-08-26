@@ -1,7 +1,6 @@
 ﻿namespace Restaurants.Controllers
 {
     using DataAccess.Entity;
-    using DataAccess.Repository;
     using System.Web.Mvc;
     using ViewModels.Users;
     public class RegistrationController : Controller

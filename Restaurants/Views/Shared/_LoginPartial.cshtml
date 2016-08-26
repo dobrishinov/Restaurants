@@ -10,13 +10,12 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome @Restaurants.Models.AuthenticationManager.LoggedUser.Username <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li>@Html.ActionLink("Add Restorants", "Edit", "DoctorsManager")</li>
-                    <li>@Html.ActionLink("View Restorants", "", "DoctorsManager")</li>
-                    <li><a href="#">Something else here</a></li>
+                    <img class="img-responsive thumbnail accountImage" src="@Restaurants.Models.AuthenticationManager.LoggedUser.ProfileImageUrl" alt="Alternate Text" style="height:100px; width:100px;" />
+                    <li><a href="@Url.Action("Edit", "Home")" class="btn_red"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add restaurant</a></li>
+                    <li><a href="@Url.Action("Edit", "Home")" class="btn_red"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp; Where can i eat?</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li>@Html.ActionLink("Edit Profile", "Edit", "Users", new { id = Restaurants.Models.AuthenticationManager.LoggedUser.Id }, new { })</li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
                     <li><a href="/Account/Logout">Log out</a></li>
                 </ul>
             </li>
@@ -26,13 +25,12 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome @Restaurants.Models.AuthenticationManager.LoggedUser.Username <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li>@Html.ActionLink("Add Restorants", "Edit", "DoctorsManager")</li>
-                    <li>@Html.ActionLink("View Restorants", "", "DoctorsManager")</li>
-                    <li><a href="#">Something else here</a></li>
+                    <img class="img-responsive thumbnail accountImage" src="@Restaurants.Models.AuthenticationManager.LoggedUser.ProfileImageUrl" alt="Alternate Text" style="height:100px; width:100px;" />
+                    <li><a href="@Url.Action("Edit", "Home")" class="btn_red"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp; Add restaurant</a></li>
+                    <li><a href="@Url.Action("Edit", "Home")" class="btn_red"><i class="fa fa-bell" aria-hidden="true"></i>&nbsp; Where can i eat?</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li>@Html.ActionLink("Edit Profile", "Edit", "Users", new { id = Restaurants.Models.AuthenticationManager.LoggedUser.Id }, new { })</li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
                     <li><a href="/Account/Logout">Log out</a></li>
                 </ul>
             </li>

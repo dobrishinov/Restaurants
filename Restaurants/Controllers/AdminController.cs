@@ -6,6 +6,7 @@
     using ViewModels.Users;
     using DataAccess.Repository;
     using System.Web.Mvc;
+
     public class AdminController : BaseController<UserEntity, UsersEditVM, UsersListVM, UsersFilterVM>
     {
         public override BaseRepository<UserEntity> CreateRepository()

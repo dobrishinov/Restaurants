@@ -2,6 +2,7 @@
 {
     using DataAccess.Entity;
     using DataAccess.Repository;
+    using Models;
     using Restautants.ViewModels.Users;
     using System.Web.Mvc;
     using ViewModels.Users;
@@ -15,15 +16,16 @@
 
         public override ActionResult RedirectTo(UserEntity entity)
         {
-            return RedirectToAction("Index", "UsersManager", new { id = entity.Id });
+            return RedirectToAction("Index", "Home", new { id = entity.Id });
         }
 
         public override void PopulateEntity(UserEntity entity, UsersEditVM model)
         {
-            entity.Username = model.Username;
-            entity.Password = model.Password;
+            //entity.Id = AuthenticationManager.LoggedUser.Id;
+            entity.Username = AuthenticationManager.LoggedUser.Username;
             entity.FirstName = model.FirstName;
             entity.LastName = model.LastName;
+            entity.Password = model.Password;
             entity.Email = model.Email;
             entity.Address = model.Address;
             entity.Phone = model.Phone;
@@ -37,9 +39,9 @@
         public override void PopulateModel(UsersEditVM model, UserEntity entity)
         {
             model.Username = entity.Username;
-            model.Password = entity.Password;
             model.FirstName = entity.FirstName;
             model.LastName = entity.LastName;
+            model.Password = entity.Password;
             model.Email = entity.Email;
             model.Address = entity.Address;
             model.Phone = entity.Phone;
