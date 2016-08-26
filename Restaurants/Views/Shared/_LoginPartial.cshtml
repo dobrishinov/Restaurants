@@ -11,7 +11,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome @Restaurants.Models.AuthenticationManager.LoggedUser.Username <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <img class="img-responsive thumbnail accountImage" src="@Restaurants.Models.AuthenticationManager.LoggedUser.ProfileImageUrl" alt="Alternate Text" style="height:100px; width:100px;" />
-                    <li><a href="@Url.Action("Edit", "Home")" class="btn_red"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add restaurant</a></li>
+                    <li><a href="@Url.Action("Edit", "Restaurant")" class="btn_red"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add restaurant</a></li>
                     <li><a href="@Url.Action("Edit", "Home")" class="btn_red"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp; Where can i eat?</a></li>
                     <li role="separator" class="divider"></li>
                     <li>@Html.ActionLink("Edit Profile", "Edit", "Users", new { id = Restaurants.Models.AuthenticationManager.LoggedUser.Id }, new { })</li>

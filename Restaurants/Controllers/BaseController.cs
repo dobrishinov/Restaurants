@@ -56,7 +56,7 @@
         public ActionResult Index()
         {
             if (AuthenticationManager.LoggedUser == null)
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("Login", "Account");
 
             IVM model = new IVM();
             model.Pager = new Pager();
@@ -80,7 +80,7 @@
         public ActionResult Edit(int? id)
         {
             if (AuthenticationManager.LoggedUser == null)
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("Login", "Account");
 
             T entity = (id == null || id <= 0) ? new T() : Repository.GetById(id);
             EVM model = new EVM();
@@ -93,7 +93,7 @@
         public ActionResult Edit(FormCollection collection)
         {
             if (AuthenticationManager.LoggedUser == null)
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("Login", "Account");
 
             EVM model = new EVM();
             TryUpdateModel(model);
@@ -108,10 +108,21 @@
 
         }
 
+        public ActionResult Details (int id)
+        {
+            EVM model = new EVM();
+            if (ModelState.IsValid)
+            {
+                T entity = Repository.GetById(id);
+                PopulateModel(model, entity);
+            }
+            return View(model);
+        }
+
         public ActionResult Delete(int id)
         {
             if (AuthenticationManager.LoggedUser == null)
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("Login", "Account");
 
 
             T entity = Repository.GetById(id);
