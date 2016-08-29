@@ -1,0 +1,48 @@
+﻿@model Restautants.ViewModels.Restautants.RestaurantsListVM
+
+<h2>Restaurants Manager</h2>
+<hr />
+<p>
+    <a class="btn btn-success" href="@Url.Action("Edit", "Restaurant")">Add restaurant</a>
+</p>
+
+@*@Html.Partial("_PartialFilter", Model.Filter)
+<br />*@
+
+
+<table class="table table-hover sortable">
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Working Time</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                <img src="@item.ImageUrl" alt="" class="img-rounded img-responsive" style="height:80px; width:80px;" />
+            </td>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Type
+            </td>
+            <td>
+                @item.WorkingTime
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+
+@*<div>
+    @Html.Partial("_PagingPartial", Model.Pager)
+</div>*@

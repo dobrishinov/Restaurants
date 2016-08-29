@@ -1,0 +1,51 @@
+﻿@model Restautants.ViewModels.Users.UsersListVM
+
+<h2>Users Manager</h2>
+
+@*@Html.Partial("_PartialFilter", Model.Filter)
+    <br />*@
+
+
+<table class="table table-hover sortable">
+    <tr>
+        <th>Profile Image</th>
+        <th>Username</th>
+        <th>Phone</th>
+        <th>Full Name</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                <img src="@item.ProfileImageUrl" alt="" class="img-rounded img-responsive" style="height:80px; width:80px;" />
+            </td>
+            <td>
+                @item.Username
+            </td>
+            <td>
+                @item.Phone
+            </td>
+            <td>
+                @item.FirstName @item.LastName
+            </td>
+            <td>
+               @item.Address
+            </td>
+            <td>
+                @item.Email
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete","Users" , new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+
+@*<div>
+        @Html.Partial("_PagingPartial", Model.Pager)
+    </div>*@

@@ -55,7 +55,7 @@
         protected virtual void OnBeforeList(IVM model) { }
 
         // GET: Base
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             if (AuthenticationManager.LoggedUser == null)
                 return RedirectToAction("Login", "Account");

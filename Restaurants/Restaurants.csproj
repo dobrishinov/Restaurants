@@ -132,6 +132,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CarouselController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -144,6 +145,9 @@
     <Compile Include="ViewModels\BaseEditVM.cs" />
     <Compile Include="ViewModels\BaseFilterVM.cs" />
     <Compile Include="ViewModels\BaseListVM.cs" />
+    <Compile Include="ViewModels\Carousel\CarouselEditVM.cs" />
+    <Compile Include="ViewModels\Carousel\CarouselFilterVM.cs" />
+    <Compile Include="ViewModels\Carousel\CarouselListVM.cs" />
     <Compile Include="ViewModels\Common\LoginOrRegisterVM.cs" />
     <Compile Include="ViewModels\Pager.cs" />
     <Compile Include="ViewModels\Restaurants\RestaurantsEditVM.cs" />
@@ -196,18 +200,17 @@
     <Content Include="Views\Restaurant\Show.cshtml" />
     <Content Include="Views\Restaurant\Edit.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Restaurant\Index.cshtml" />
     <Content Include="Views\Restaurant\Details.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Profile.cshtml" />
+    <Content Include="Views\Shared\_PagingPartial.cshtml" />
+    <Content Include="Views\Admin\Restaurants.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\Admin\" />
-    <Folder Include="Views\Admin\Dashboard\" />
+    <Folder Include="Views\Carousel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

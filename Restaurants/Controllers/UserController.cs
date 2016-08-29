@@ -31,6 +31,11 @@
             return View();
         }
 
+        public override ActionResult Index()
+        {
+            return RedirectToAction("Profile", "Users", new { id = AuthenticationManager.LoggedUser.Id});
+        }
+
         public override void PopulateEntity(UserEntity entity, UsersEditVM model)
         {
             //entity.Id = AuthenticationManager.LoggedUser.Id;
