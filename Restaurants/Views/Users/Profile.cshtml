@@ -1,0 +1,54 @@
+﻿@model Restaurants.ViewModels.Users.UsersEditVM
+@{
+    ViewBag.Title = "Edit Profile";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="container">
+        <h2>My Profile</h2>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well well-sm">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <img src="@Restaurants.Models.AuthenticationManager.LoggedUser.ProfileImageUrl" alt="" class="img-rounded img-responsive" />
+                        </div>
+                        <div class="col-sm-6 col-md-8">
+                            <h4>
+                                @Restaurants.Models.AuthenticationManager.LoggedUser.FirstName @Restaurants.Models.AuthenticationManager.LoggedUser.LastName
+                            </h4>
+
+                            <hr />
+                           
+                            <small>
+                                <cite title="@Restaurants.Models.AuthenticationManager.LoggedUser.Address">
+                                    @Restaurants.Models.AuthenticationManager.LoggedUser.Address <i class="glyphicon glyphicon-map-marker">
+                                    </i>
+                                </cite>
+                            </small>
+                            <p>
+                                <i class="glyphicon glyphicon-envelope"></i> @Restaurants.Models.AuthenticationManager.LoggedUser.Email
+                                <br />
+                                <i class="glyphicon glyphicon-phone"></i> @Restaurants.Models.AuthenticationManager.LoggedUser.Phone
+                                <hr />
+                                <i class="fa fa-cutlery" aria-hidden="true"></i> Favourite Foods: @Restaurants.Models.AuthenticationManager.LoggedUser.FavouriteFoods
+                                <br />
+                                <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i> Favourite Place: @Restaurants.Models.AuthenticationManager.LoggedUser.FavouritePlace
+                                <br />
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> Description: @Restaurants.Models.AuthenticationManager.LoggedUser.Description
+                            </p>
+                            <a href="/Users/Edit/@Restaurants.Models.AuthenticationManager.LoggedUser.Id" class="btn btn-primary">Edit Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

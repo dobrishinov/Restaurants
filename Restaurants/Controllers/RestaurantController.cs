@@ -5,6 +5,8 @@
     using Models;
     using Restautants.ViewModels.Restautants;
     using Restautants.ViewModels.Users;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
     using ViewModels.Restaurants;
     using ViewModels.Users;
@@ -19,6 +21,11 @@
         public override ActionResult RedirectTo(RestaurantEntity entity)
         {
             return RedirectToAction("Index", "Home", new { id = entity.Id });
+        }
+
+        protected override void OnBeforeList(RestaurantsListVM model)
+        {
+            model.Items = model.Items.OrderBy(x => x.Name).ToList();
         }
 
         public override void PopulateEntity(RestaurantEntity entity, RestaurantsEditVM model)

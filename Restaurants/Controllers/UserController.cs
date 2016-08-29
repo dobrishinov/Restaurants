@@ -5,6 +5,7 @@
     using Models;
     using Restautants.ViewModels.Users;
     using System.Web.Mvc;
+    using ViewModels;
     using ViewModels.Users;
 
     public class UsersController : BaseController<UserEntity, UsersEditVM, UsersListVM, UsersFilterVM>
@@ -17,6 +18,17 @@
         public override ActionResult RedirectTo(UserEntity entity)
         {
             return RedirectToAction("Index", "Home", new { id = entity.Id });
+        }
+
+        public ActionResult Profile(int id)
+        {
+            BaseEditVM model = new BaseEditVM();
+            if (ModelState.IsValid)
+            {
+                UserEntity entity = Repository.GetById(id);
+               
+            }
+            return View();
         }
 
         public override void PopulateEntity(UserEntity entity, UsersEditVM model)
@@ -38,7 +50,7 @@
 
         public override void PopulateModel(UsersEditVM model, UserEntity entity)
         {
-            model.Username = entity.Username;
+            model.Username = AuthenticationManager.LoggedUser.Username;
             model.FirstName = entity.FirstName;
             model.LastName = entity.LastName;
             model.Password = entity.Password;

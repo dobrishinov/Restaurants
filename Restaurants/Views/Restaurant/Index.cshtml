@@ -17,9 +17,9 @@
     </div>
     <!-- /.row -->
     <!-- Projects Row -->
-    @foreach (var item in Model.Items)
-    {
-        <div class="row">
+    <div class="row">
+        @foreach (var item in Model.Items)
+        {
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
                     <img src="@item.ImageUrl" alt="">
@@ -32,10 +32,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 
-
-    @*<div>
-            @Html.Partial("_PagingPartial", Model.Pager)
-        </div>*@
+        @*<div>
+                @Html.Partial("_PagingPartial", Model.Pager)
+            </div>*@

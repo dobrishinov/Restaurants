@@ -52,6 +52,8 @@
             return null;
         }
 
+        protected virtual void OnBeforeList(IVM model) { }
+
         // GET: Base
         public ActionResult Index()
         {
@@ -65,7 +67,7 @@
             TryUpdateModel(model);
 
             PopulateIndex(model);
-
+            OnBeforeList(model);
             //string action = this.ControllerContext.RouteData.Values["action"].ToString();
             //string controller = this.ControllerContext.RouteData.Values["controller"].ToString();
             //model.Items = Repository.GetAll(model.Filter.BuildFilter(), model.Pager.CurrentPage, model.Pager.PageSize).ToList();
