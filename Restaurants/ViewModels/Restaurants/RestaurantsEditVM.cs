@@ -1,5 +1,6 @@
 ﻿namespace Restaurants.ViewModels.Restaurants
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     public class RestaurantsEditVM : BaseEditVM
@@ -21,7 +22,7 @@
         [Required]
         public string ImageUrl { get; set; }
         [Required]
-        public string Coordinates { get; set; }
+        public DateTime CreateTime { get; set; }
 
         public bool RestaurantsStatus { get; set; }
     }

@@ -1,52 +1,42 @@
-﻿@{
-    ViewBag.Title = "EATinator";
-}
+﻿@model Restaurants.ViewModels.Restaurants.RestaurantsEditVM
 
-    <!-- Page Content -->
+<!-- Page Content -->
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <h2>Today best place for you is:</h2>
             <div class="thumbnail">
-                <img class="img-responsive thumbnail" src="http://programata.bg/img/gallery/place_2915.jpg" alt="">
+                <img class="img-responsive thumbnail" src="@Model.ImageUrl" alt="">
                 <hr />
                 <div class="caption-full">
                     <h4 class="pull-right"></h4>
                     <h4>
-                        <i class="fa fa-cutlery fa-3x col-lg-2" aria-hidden="true"></i><a href="#">Chinese Restaurant Azia</a>
+                        <i class="fa fa-cutlery fa-3x col-lg-2" aria-hidden="true"></i><a href="#">@Model.Name</a>
                     </h4>
-                    <p>See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                    <p>@Model.Type</p>
                     <p>
                         <hr />
-                        Want to make these reviews work? Check out
-                        <strong>
-                            <a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this building a review system tutorial</a>
-                        </strong>over at maxoffsky.com!
+                        @Model.Description
                     </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                 </div>
-                
                 <hr />
-
                 <ul class="list-group">
                     <li class="list-group-item list-group-item-success">
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    Working Time: 09:00 - 18:00
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        Working Time: @Model.WorkingTime
                     </li>
                     <li class="list-group-item list-group-item-info">
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        azia@azia.com
+                        @Model.Email
                     </li>
-                    <li class="list-group-item list-group-item-warning"><i class="fa fa-map-marker" aria-hidden="true"></i> street "Gladstoun", Plovdiv</li>
-                    <li class="list-group-item list-group-item-danger"><i class="fa fa-phone" aria-hidden="true"></i> +3598555555555</li></li>
+                    <li class="list-group-item list-group-item-warning"><i class="fa fa-map-marker" aria-hidden="true"></i> @Model.Address</li>
+                    <li class="list-group-item list-group-item-danger"><i class="fa fa-phone" aria-hidden="true"></i> @Model.Phone</li>
                 </ul>
-
-                    <div class="panel panel-default">
-                        <iframe class="img-responsive" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.3662464629524!2d24.74101781576008!3d42.14244885680813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1b745fc08b5%3A0x4cd3205c60b5351d!2z0JDQt9C40Y8!5e0!3m2!1sbg!2sbg!4v1471954550094" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>                   
-                    </div>
-
+                <div class="panel panel-default">
+                    @*<iframe class="img-responsive" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.3662464629524!2d24.74101781576008!3d42.14244885680813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1b745fc08b5%3A0x4cd3205c60b5351d!2z0JDQt9C40Y8!5e0!3m2!1sbg!2sbg!4v1471954550094" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>*@
+                    <iframe class="img-responsive" width="800" height="600" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDVTHPYwXZEiimTFLlMKQIDdxMoo-DDg4U&q=@Model.Address" allowfullscreen></iframe>
+                </div>
                 <hr />
-
                 <div class="ratings">
                     <p class="pull-right">3 reviews</p>
                     <p>

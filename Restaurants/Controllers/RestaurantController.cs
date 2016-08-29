@@ -2,14 +2,11 @@
 {
     using DataAccess.Entity;
     using DataAccess.Repository;
-    using Models;
     using Restautants.ViewModels.Restautants;
-    using Restautants.ViewModels.Users;
-    using System.Collections.Generic;
+    using System;
     using System.Linq;
     using System.Web.Mvc;
     using ViewModels.Restaurants;
-    using ViewModels.Users;
 
     public class RestaurantController : BaseController<RestaurantEntity, RestaurantsEditVM, RestaurantsListVM, RestaurantsFilterVM>
     {
@@ -25,9 +22,9 @@
 
         protected override void OnBeforeList(RestaurantsListVM model)
         {
-            model.Items = model.Items.OrderBy(x => x.Name).ToList();
+            model.Items = model.Items.OrderByDescending(x => x.CreateTime).ToList();
         }
-
+        
         public override void PopulateEntity(RestaurantEntity entity, RestaurantsEditVM model)
         {
             entity.Name = model.Name;
@@ -38,7 +35,7 @@
             entity.Address = model.Address;
             entity.Phone = model.Phone;
             entity.ImageUrl = model.ImageUrl;
-            entity.Coordinates = model.Coordinates;
+            entity.CreateTime = DateTime.Now;
             entity.RestaurantsStatus = false;
         }
 
@@ -52,7 +49,7 @@
             model.Address = entity.Address;
             model.Phone = entity.Phone;
             model.ImageUrl = entity.ImageUrl;
-            model.Coordinates = entity.Coordinates;
+            model.CreateTime = entity.CreateTime;
             model.RestaurantsStatus = entity.RestaurantsStatus;
 
         }

@@ -50,7 +50,7 @@
 
         public override void PopulateModel(UsersEditVM model, UserEntity entity)
         {
-            model.Username = AuthenticationManager.LoggedUser.Username;
+            model.Username = entity.Username;
             model.FirstName = entity.FirstName;
             model.LastName = entity.LastName;
             model.Password = entity.Password;
