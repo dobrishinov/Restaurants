@@ -20,9 +20,10 @@
             return RedirectToAction("Index", "Home", new { id = entity.Id });
         }
 
-        protected override void OnBeforeList(RestaurantsListVM model)
+        protected override void BeforeList(RestaurantsListVM model)
         {
-            model.Items = model.Items.OrderByDescending(x => x.CreateTime).ToList();
+            model.Items =model.Items.OrderByDescending(x => x.CreateTime)
+                                                .Skip((model.Pager.CurrentPage - 1) * model.Pager.PageSize).Take(model.Pager.PageSize).ToList(); 
         }
         
         public override void PopulateEntity(RestaurantEntity entity, RestaurantsEditVM model)

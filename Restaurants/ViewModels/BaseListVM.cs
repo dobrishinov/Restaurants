@@ -7,6 +7,12 @@
         where T : BaseEntity, new()
         where F : BaseFilterVM<T>, new()
     {
+        public BaseListVM()
+        {
+            this.Filter = new F();
+            this.Pager = new Pager();
+        }
+
         public List<T> Items { get; set; }
 
         public Pager Pager { get; set; }

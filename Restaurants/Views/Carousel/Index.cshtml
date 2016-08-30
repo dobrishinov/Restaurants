@@ -1,0 +1,48 @@
+﻿@model Restautants.ViewModels.Carousel.CarouselListVM
+
+<h2>Carousel Manager</h2>
+<hr />
+<p>
+    <a class="btn btn-success" href="@Url.Action("Edit", "Carousel")">Add carousel</a>
+</p>
+
+@*@Html.Partial("_PartialFilter", Model.Filter)
+    <br />*@
+
+
+<table class="table table-hover sortable">
+    <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Create Time</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                <img src="@item.ImageUrl" alt="" class="img-rounded img-responsive" style="height:80px; width:150px;" />
+            </td>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                @item.CreateTime
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+
+@*<div>
+        @Html.Partial("_PagingPartial", Model.Pager)
+    </div>*@
+

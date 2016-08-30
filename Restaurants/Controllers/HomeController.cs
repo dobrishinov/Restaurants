@@ -9,6 +9,7 @@
     using System.Web.Mvc;
     using ViewModels.Restaurants;
     using System.Collections.Generic;
+    using ViewModels;
 
     public class HomeController : BaseController<RestaurantEntity, RestaurantsEditVM, RestaurantsListVM, RestaurantsFilterVM>
     {
@@ -17,9 +18,13 @@
             return new RestaurantsRepository();
         }
 
-        protected override void OnBeforeList(RestaurantsListVM model)
+        protected override void BeforeList(RestaurantsListVM model)
         {
-            model.Items = model.Items.OrderByDescending(x => x.CreateTime).Take(4).ToList();
+            CarouselRepository carouselRepo = new CarouselRepository();
+            model.Carousel = carouselRepo.GetAll().ToList();
+            model.Items = model.Items.OrderByDescending(x => x.CreateTime)
+                                            .Skip((model.Pager.CurrentPage - 1) * model.Pager.PageSize).Take(model.Pager.PageSize).ToList();
+
         }
 
         public ActionResult Eatinator()
@@ -73,7 +78,6 @@
             model.ImageUrl = entity.ImageUrl;
             model.CreateTime = entity.CreateTime;
             model.RestaurantsStatus = entity.RestaurantsStatus;
-
         }
 
         //[HttpGet]

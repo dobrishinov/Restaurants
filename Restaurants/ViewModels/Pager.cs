@@ -4,7 +4,7 @@
 
     public class Pager
     {
-        public Pager() : this(0, 1, "", "", "", 3)
+        public Pager() : this(0, 1, "", "", "", 4)
         {
 
         }

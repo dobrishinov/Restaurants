@@ -2,12 +2,15 @@
 {
     using DataAccess.Entity;
     using DataAccess.Repository;
+    using Filter;
     using Models;
     using Restautants.ViewModels.Users;
+    using System.Linq;
     using System.Web.Mvc;
     using ViewModels;
     using ViewModels.Users;
 
+    [AdminAuthentication]
     public class UsersController : BaseController<UserEntity, UsersEditVM, UsersListVM, UsersFilterVM>
     {
         public override BaseRepository<UserEntity> CreateRepository()
@@ -18,6 +21,12 @@
         public override ActionResult RedirectTo(UserEntity entity)
         {
             return RedirectToAction("Index", "Home", new { id = entity.Id });
+        }
+
+        protected override void BeforeList(UsersListVM model)
+        {
+            model.Items = model.Items.OrderByDescending(x => x.Username)
+                                                .Skip((model.Pager.CurrentPage - 1) * model.Pager.PageSize).Take(model.Pager.PageSize).ToList();
         }
 
         public ActionResult Profile(int id)

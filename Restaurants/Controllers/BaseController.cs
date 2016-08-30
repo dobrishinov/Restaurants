@@ -29,30 +29,13 @@
         public abstract void PopulateModel(EVM model, T entity);
         public abstract void PopulateEntity(T entity, EVM model);
         protected Expression<Func<T, bool>> Filter { get; set; }
-
-        public virtual void PopulateIndex(IVM model)
-        {
-            string action = this.ControllerContext.RouteData.Values["action"].ToString();
-            string controller = this.ControllerContext.RouteData.Values["controller"].ToString();
-            //t => t.CreatorId == AuthenticationManager.LoggedUser.Id|| t.ResponsibleUsers == AuthenticationManager.LoggedUser.Id
-
-            model.Items = Repository.GetAll(model.Filter.BuildFilter(), model.Pager.CurrentPage, model.Pager.PageSize).ToList();
-            //model.Items = model.Items.Skip((model.Pager.CurrentPage - 1) * model.Pager.PageSize).Take(model.Pager.PageSize).ToList();
-            model.Pager = new Pager(Repository.GetAll(model.Filter.BuildFilter()).Count(), model.Pager == null ? 1 : model.Pager.CurrentPage, "Pager.", action, controller, model.Pager == null ? 3 : model.Pager.PageSize);
-            model.Filter.ParentPager = model.Pager;
-        }
-
+        
         public virtual ActionResult RedirectTo(T entity)
         {
             return RedirectToAction("Index");
         }
 
-        protected virtual Expression<Func<T, bool>> CreateFilter()
-        {
-            return null;
-        }
-
-        protected virtual void OnBeforeList(IVM model) { }
+        protected virtual void BeforeList(IVM model) { }
 
         // GET: Base
         public virtual ActionResult Index()
@@ -61,20 +44,18 @@
                 return RedirectToAction("Login", "Account");
 
             IVM model = new IVM();
-            model.Pager = new Pager();
-            model.Filter = new F();
-
             TryUpdateModel(model);
+            model.Items = Repository.GetAll(model.Filter.BuildFilter()).ToList();
 
-            PopulateIndex(model);
-            OnBeforeList(model);
-            //string action = this.ControllerContext.RouteData.Values["action"].ToString();
-            //string controller = this.ControllerContext.RouteData.Values["controller"].ToString();
-            //model.Items = Repository.GetAll(model.Filter.BuildFilter(), model.Pager.CurrentPage, model.Pager.PageSize).ToList();
-            //model.Pager = new Pager(Repository.GetAll(model.Filter.BuildFilter()).Count(),model.Pager.CurrentPage, "Pager.", action, controller, model.Pager.PageSize);
+            BeforeList(model);
 
-            //model.Filter.ParentPager = model.Pager;
-
+            //Pager
+            string action = this.ControllerContext.RouteData.Values["action"].ToString();
+            string controller = this.ControllerContext.RouteData.Values["controller"].ToString();
+            model.Pager = new Pager(Repository.GetAll(model.Filter.BuildFilter()).Count(), model.Pager.CurrentPage, "Pager.", action, controller, model.Pager.PageSize);
+            //Filter
+            model.Filter.ParentPager = model.Pager;
+            
             return View(model);
         }
 

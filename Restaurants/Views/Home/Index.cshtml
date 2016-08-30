@@ -1,26 +1,28 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model Restautants.ViewModels.Restautants.RestaurantsListVM
 
+<!--Carousel-->
 <div class="container">
     <!-- Indicators -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img class="first-slide" src="..\Content\Uploader\CarouselPics\0.jpg" style="height:350px; width:1200px;" alt="First slide">
+                <iframe width="100%" height="350" src="//www.youtube.com/embed/dqjbkzistdI?modestbranding=1&autohide=1&showinfo=0&controls=0&autoplay=1" frameborder="0" allowfullscreen=""></iframe>
                 <div class="carousel-caption">
-                    <h3>Header of Slide 1</h3>
-                    <p>Details of Slide 1. Lorem Ipsum Blah Blah Blah....</p>
-                </div>
+                <h3>Plovdiv</h3>
+                <p>Plovdiv Together 2019 European Capital Of Culture</p>
             </div>
-            <div class="item">
-                <img class="second-slide" src="..\Content\Uploader\CarouselPics\1.jpg" style="height:350px; width:1200px;" alt="Second slide">
-                <div class="carousel-caption">
-                    <h3>Header of Slide 2</h3>
-                    <p>Details of Slide 2. Lorem Ipsum Blah Blah Blah....</p>
-                </div>
             </div>
+            @foreach (var item in Model.Carousel)
+            {
+                <div class="item">
+                    <img class="first-slide" src="@item.ImageUrl" style="height:350px; width:1200px;" alt="First slide">
+                    <div class="carousel-caption">
+                        <h3>@item.Title</h3>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+            }
         </div>
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -33,8 +35,10 @@
         </a>
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            @foreach (var item in Model.Carousel)
+            {
+                <li data-target="#myCarousel" data-slide-to="@item.Id" class=""></li>
+            }
         </ol>
     </div>
 </div>

@@ -9,11 +9,7 @@
     public class UsersFilterVM : BaseFilterVM<UserEntity>
     {
         UsersRepository repo = new UsersRepository();
-
-        public UsersFilterVM()
-        {
-        }
-
+        
         [FilterProperty(DisplayName = "First Name")]
         public string FirstName { get; set; }
 

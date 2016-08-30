@@ -1,8 +1,8 @@
-﻿namespace Restautants.ViewModels.Restautants
+﻿namespace Restautants.ViewModels.Carousel
 {
     using DataAccess.Entity;
     using Restaurants.ViewModels;
-    using Restaurants.ViewModels.Restaurants;
+    using Restaurants.ViewModels.Carousel;
 
     public class CarouselListVM : BaseListVM<CarouselEntity, CarouselFilterVM>
     {

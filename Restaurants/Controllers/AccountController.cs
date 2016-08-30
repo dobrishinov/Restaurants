@@ -6,6 +6,7 @@
     using Restaurants.ViewModels.Common;
     using System.Web.Mvc;
     using ViewModels.Users;
+
     public class AccountController : Controller
     {
         // GET: Account

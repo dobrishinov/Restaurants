@@ -1,4 +1,4 @@
-﻿namespace Restaurants.ViewModels.Restaurants
+﻿namespace Restaurants.ViewModels.Carousel
 {
     using System;
     using System.ComponentModel.DataAnnotations;

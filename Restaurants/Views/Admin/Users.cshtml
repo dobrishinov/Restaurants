@@ -2,8 +2,9 @@
 
 <h2>Users Manager</h2>
 
-@*@Html.Partial("_PartialFilter", Model.Filter)
-    <br />*@
+@*
+    @Html.Partial("_PartialFilter", Model.Filter)
+<br />*@
 
 
 <table class="table table-hover sortable">
@@ -33,19 +34,19 @@
                 @item.FirstName @item.LastName
             </td>
             <td>
-               @item.Address
+                @item.Address
             </td>
             <td>
                 @item.Email
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
-                @Html.ActionLink("Delete", "Delete","Users" , new { id = item.Id }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Edit", "Edit", "Users", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", "Users", new { id = item.Id }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
 </table>
 
-@*<div>
-        @Html.Partial("_PagingPartial", Model.Pager)
-    </div>*@
+<div>
+    @Html.Partial("_PagingPartial", Model.Pager)
+</div>

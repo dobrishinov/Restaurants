@@ -1,4 +1,4 @@
-﻿namespace Restaurants.ViewModels.Restaurants
+﻿namespace Restaurants.ViewModels.Carousel
 {
     using DataAccess.Entity;
     using DataAccess.Repository;

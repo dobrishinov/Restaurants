@@ -7,37 +7,59 @@
     using DataAccess.Repository;
     using System.Web.Mvc;
     using System.Linq;
-    using Models;
     using Restautants.ViewModels.Users;
+    using ViewModels;
+    using Models;
+    using Filter;
+
+    [AdminAuthentication]
     public class AdminController : Controller
     {
         public AdminController()
         {
             UsersRepo = new UsersRepository();
-            RestaurantRepo =new RestaurantsRepository();
+            RestaurantRepo = new RestaurantsRepository();
         }
 
         private readonly UsersRepository UsersRepo;
         private readonly RestaurantsRepository RestaurantRepo;
-        //Users
+
+        //  ----  Users    ---- 
 
         public ActionResult Users()
         {
             UsersListVM model = new UsersListVM();
-            model.Items = UsersRepo.GetAll().ToList();
+            TryUpdateModel(model);
+            model.Items = UsersRepo.GetAll(model.Filter.BuildFilter(), model.Pager.CurrentPage, model.Pager.PageSize).ToList();
+
+            //Pager
+            string action = this.ControllerContext.RouteData.Values["action"].ToString();
+            string controller = this.ControllerContext.RouteData.Values["controller"].ToString();
+            model.Pager = new Pager(UsersRepo.GetAll(model.Filter.BuildFilter()).Count(), model.Pager.CurrentPage, "Pager.", action, controller, model.Pager.PageSize);
+            //Filter
+            model.Filter.ParentPager = model.Pager;
+
             return View(model);
         }
-        
 
-        //Restaurants
+        // ---- Restaurants ----
 
         public ActionResult Restaurants()
         {
             RestaurantsListVM model = new RestaurantsListVM();
-            model.Items = RestaurantRepo.GetAll().ToList();
+            TryUpdateModel(model);
+            model.Items = RestaurantRepo.GetAll(model.Filter.BuildFilter()).OrderByDescending(x => x.CreateTime)
+                                                .Skip((model.Pager.CurrentPage - 1) * model.Pager.PageSize).Take(model.Pager.PageSize).ToList();
+
+            //Pager
+            string action = this.ControllerContext.RouteData.Values["action"].ToString();
+            string controller = this.ControllerContext.RouteData.Values["controller"].ToString();
+            model.Pager = new Pager(RestaurantRepo.GetAll(model.Filter.BuildFilter()).Count(), model.Pager.CurrentPage, "Pager.", action, controller, model.Pager.PageSize);
+            //Filter
+            model.Filter.ParentPager = model.Pager;
             return View(model);
         }
-   
+        
         public void PopulateRestaurantEntity(RestaurantEntity entity, RestaurantsEditVM model)
         {
             entity.Name = model.Name;
@@ -52,7 +74,7 @@
             entity.RestaurantsStatus = false;
         }
 
-        public  void PopulateRestaurantModel(RestaurantsEditVM model, RestaurantEntity entity)
+        public void PopulateRestaurantModel(RestaurantsEditVM model, RestaurantEntity entity)
         {
             model.Name = entity.Name;
             model.Type = entity.Type;
