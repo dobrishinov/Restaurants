@@ -1,19 +1,12 @@
 ﻿namespace Restaurants.ViewModels.Restaurants
 {
     using DataAccess.Entity;
-    using DataAccess.Repository;
     using System;
     using System.Linq.Expressions;
     using Tools;
 
     public class RestaurantsFilterVM : BaseFilterVM<RestaurantEntity>
     {
-        RestaurantsRepository repo = new RestaurantsRepository();
-
-        public RestaurantsFilterVM()
-        {
-        }
-
         [FilterProperty(DisplayName = "Name")]
         public string Name { get; set; }
 
@@ -28,10 +21,13 @@
 
         public override Expression<Func<RestaurantEntity, bool>> BuildFilter()
         {
-            return (p => ((p.Name.Contains(Name) || string.IsNullOrEmpty(Name))
-            || ((p.Type.Contains(Type)) || string.IsNullOrEmpty(Type))
-            || ((p.Description.Contains(Description)) || string.IsNullOrEmpty(Description))));
+            Expression<Func<RestaurantEntity, bool>> filter = (p =>
+                   (p.RestaurantsStatus == true) &&
+                   ((string.IsNullOrEmpty(Name) || p.Name.Contains(Name)) ||
+                   (string.IsNullOrEmpty(Type) || p.Type.Contains(Type)) ||
+                   ((string.IsNullOrEmpty(Description) || p.Description.Contains(Description)))));
 
+            return filter;
         }
     }
 }

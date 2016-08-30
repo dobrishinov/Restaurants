@@ -43,23 +43,64 @@
         }
 
         // ---- Restaurants ----
-
         public ActionResult Restaurants()
         {
             RestaurantsListVM model = new RestaurantsListVM();
             TryUpdateModel(model);
-            model.Items = RestaurantRepo.GetAll(model.Filter.BuildFilter()).OrderByDescending(x => x.CreateTime)
+            model.Items = RestaurantRepo.GetAll().OrderByDescending(x => x.CreateTime)
                                                 .Skip((model.Pager.CurrentPage - 1) * model.Pager.PageSize).Take(model.Pager.PageSize).ToList();
 
             //Pager
             string action = this.ControllerContext.RouteData.Values["action"].ToString();
             string controller = this.ControllerContext.RouteData.Values["controller"].ToString();
-            model.Pager = new Pager(RestaurantRepo.GetAll(model.Filter.BuildFilter()).Count(), model.Pager.CurrentPage, "Pager.", action, controller, model.Pager.PageSize);
+            model.Pager = new Pager(RestaurantRepo.GetAll().Count(), model.Pager.CurrentPage, "Pager.", action, controller, model.Pager.PageSize);
             //Filter
             model.Filter.ParentPager = model.Pager;
             return View(model);
         }
         
+
+        public ActionResult ApproveRestaurants()
+        {
+            RestaurantsListVM model = new RestaurantsListVM();
+            TryUpdateModel(model);
+            model.Items = RestaurantRepo.GetAll(p=>p.RestaurantsStatus==false).OrderByDescending(x => x.CreateTime)
+                                                .Skip((model.Pager.CurrentPage - 1) * model.Pager.PageSize).Take(model.Pager.PageSize).ToList();
+
+            //Pager
+            string action = this.ControllerContext.RouteData.Values["action"].ToString();
+            string controller = this.ControllerContext.RouteData.Values["controller"].ToString();
+            model.Pager = new Pager(RestaurantRepo.GetAll(p=>p.RestaurantsStatus==false).Count(), model.Pager.CurrentPage, "Pager.", action, controller, model.Pager.PageSize);
+            //Filter
+            model.Filter.ParentPager = model.Pager;
+            return View(model);
+        }
+
+        public ActionResult Aprove(int id)
+        {
+            RestaurantEntity entity = RestaurantRepo.GetById(id);
+            entity.RestaurantsStatus = true;
+            RestaurantRepo.Save(entity);
+            return RedirectToAction("ApproveRestaurants");
+        }
+
+        public ActionResult Decline(int id)
+        {
+            DeleteRestaurant(id);
+            return RedirectToAction("ApproveRestaurants");
+        }
+        public ActionResult Delete(int id)
+        {
+            DeleteRestaurant(id);
+            return RedirectToAction("Restaurants");
+        }
+
+        private void DeleteRestaurant(int id)
+        {
+            RestaurantEntity entity = RestaurantRepo.GetById(id);
+            RestaurantRepo.Delete(entity);
+        }
+
         public void PopulateRestaurantEntity(RestaurantEntity entity, RestaurantsEditVM model)
         {
             entity.Name = model.Name;

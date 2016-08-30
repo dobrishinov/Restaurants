@@ -40,8 +40,8 @@
         // GET: Base
         public virtual ActionResult Index()
         {
-            if (AuthenticationManager.LoggedUser == null)
-                return RedirectToAction("Login", "Account");
+            //if (AuthenticationManager.LoggedUser == null)
+            //    return RedirectToAction("Login", "Account");
 
             IVM model = new IVM();
             TryUpdateModel(model);

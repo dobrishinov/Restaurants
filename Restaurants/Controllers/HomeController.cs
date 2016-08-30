@@ -29,8 +29,8 @@
 
         public ActionResult Eatinator()
         {
-            if (AuthenticationManager.LoggedUser == null)
-                return RedirectToAction("Login", "Account");
+            //if (AuthenticationManager.LoggedUser == null)
+            //    return RedirectToAction("Login", "Account");
 
             Random random = new Random();
 
