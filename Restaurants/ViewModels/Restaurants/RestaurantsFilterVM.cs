@@ -7,14 +7,11 @@
 
     public class RestaurantsFilterVM : BaseFilterVM<RestaurantEntity>
     {
-        [FilterProperty(DisplayName = "Name")]
+        [FilterProperty(DisplayName = "Restaurants Name")]
         public string Name { get; set; }
 
-        [FilterProperty(DisplayName = "Type")]
+        [FilterProperty(DisplayName = "Type of restaurant")]
         public string Type { get; set; }
-
-        [FilterProperty(DisplayName = "Description")]
-        public string Description { get; set; }
 
         //[FilterProperty(DisplayName = "UserName", DropDownTargetProperty = "UserName")]
         //public List<ISelectItem> UserName { get; set; }
@@ -23,9 +20,18 @@
         {
             Expression<Func<RestaurantEntity, bool>> filter = (p =>
                    (p.RestaurantsStatus == true) &&
-                   ((string.IsNullOrEmpty(Name) || p.Name.Contains(Name)) ||
-                   (string.IsNullOrEmpty(Type) || p.Type.Contains(Type)) ||
-                   ((string.IsNullOrEmpty(Description) || p.Description.Contains(Description)))));
+                   ((p.Name.Contains(Name) || string.IsNullOrEmpty(Name)) &&
+                   (p.Type.Contains(Type) || string.IsNullOrEmpty(Type))));
+
+            return filter;
+        }
+
+        public  Expression<Func<RestaurantEntity, bool>> BuildDeclineFilter()
+        {
+            Expression<Func<RestaurantEntity, bool>> filter = (p =>
+                   (p.RestaurantsStatus == false) &&
+                   ((p.Name.Contains(Name) || string.IsNullOrEmpty(Name)) &&
+                   (p.Type.Contains(Type) || string.IsNullOrEmpty(Type))));
 
             return filter;
         }

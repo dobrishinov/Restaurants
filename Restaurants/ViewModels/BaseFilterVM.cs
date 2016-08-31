@@ -9,9 +9,7 @@
         public abstract Expression<Func<T, bool>> BuildFilter();
 
         public string Prefix { get { return "Filter."; } }
-
-        public int? ActionId { get; set; }
-
+        
         public Pager ParentPager { get; set; }
     }
 }

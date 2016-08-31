@@ -33,11 +33,14 @@
             //    return RedirectToAction("Login", "Account");
 
             Random random = new Random();
+            RestaurantsEditVM model = new RestaurantsEditVM();
 
-            List<int> ids = Repository.GetAll().Select(x => x.Id).ToList();
+            model.RestaurantsStatus = true;
+
+            List<int> ids = Repository.GetAll(x => x.RestaurantsStatus == model.RestaurantsStatus).Select(x => x.Id).ToList();
 
             RestaurantEntity entity =  Repository.GetById(ids[random.Next(0,ids.Count)]);
-            RestaurantsEditVM model = new RestaurantsEditVM();
+            
             PopulateModel(model, entity);
             return View(model);
         }

@@ -3,11 +3,11 @@
 <h2>Restaurants Manager</h2>
 <hr />
 <p>
-    <a class="btn btn-success" href="@Url.Action("Edit", "Restaurants")">Add restaurant</a>
+    <a class="btn btn-success" href="@Url.Action("Edit", "Restaurant")">Add restaurant</a>
 </p>
 
-@*@Html.Partial("_PartialFilter", Model.Filter)
-    <br />*@
+@Html.Partial("_PartialFilter", Model.Filter)
+    <br />
 
 
 <table class="table table-hover sortable">
@@ -16,6 +16,7 @@
         <th>Name</th>
         <th>Type</th>
         <th>Working Time</th>
+        <th>Status</th>
         <th>Actions</th>
     </tr>
 
@@ -34,10 +35,12 @@
             <td>
                 @item.WorkingTime
             </td>
+            <td class="@item.RestaurantsStatus.ToString()">
+            </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
-                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Edit", "Edit", "Restaurant", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Details", "Details", "Restaurant", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", "Restaurant", new { id = item.Id }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

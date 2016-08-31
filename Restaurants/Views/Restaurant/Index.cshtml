@@ -1,8 +1,4 @@
 ﻿@model Restautants.ViewModels.Restautants.RestaurantsListVM
-@*<hr />
-@Html.Partial("_PartialFilter", Model.Filter)
-<br />*@
-
 
 <!-- Page Content -->
 <div class="container">
@@ -13,6 +9,8 @@
                 Restaurants
                 <small></small>
             </h1>
+            @Html.Partial("_PartialFilter", Model.Filter)
+            <hr />
         </div>
     </div>
     <!-- /.row -->

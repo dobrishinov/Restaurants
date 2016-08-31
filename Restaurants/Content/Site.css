@@ -190,3 +190,19 @@ select
 .accountImage {
     margin: 2% 21% 5%;
 }
+
+.True:before {
+   font-family: FontAwesome;
+   content: "\f00c";
+   display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+}
+
+.False:before {
+   font-family: FontAwesome;
+   content: "\f00d";
+   display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+}
