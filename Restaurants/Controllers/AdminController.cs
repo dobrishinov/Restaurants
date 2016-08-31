@@ -47,13 +47,13 @@
         {
             RestaurantsListVM model = new RestaurantsListVM();
             TryUpdateModel(model);
-            model.Items = RestaurantRepo.GetAll(model.Filter.BuildDeclineFilter()).OrderByDescending(x => x.CreateTime)
+            model.Items = RestaurantRepo.GetAll(model.Filter.BuildFilter()).OrderByDescending(x => x.CreateTime)
                                                 .Skip((model.Pager.CurrentPage - 1) * model.Pager.PageSize).Take(model.Pager.PageSize).ToList();
 
             //Pager
             string action = this.ControllerContext.RouteData.Values["action"].ToString();
             string controller = this.ControllerContext.RouteData.Values["controller"].ToString();
-            model.Pager = new Pager(RestaurantRepo.GetAll().Count(), model.Pager.CurrentPage, "Pager.", action, controller, model.Pager.PageSize);
+            model.Pager = new Pager(RestaurantRepo.GetAll(model.Filter.BuildFilter()).Count(), model.Pager.CurrentPage, "Pager.", action, controller, model.Pager.PageSize);
             //Filter
             model.Filter.ParentPager = model.Pager;
             return View(model);
