@@ -1,0 +1,14 @@
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\WebService.dll.config
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\WebService.dll
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\WebService.pdb
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\DataAccess.dll
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\EntityFramework.dll
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\EntityFramework.SqlServer.dll
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\ServiceLayer.dll
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\DataAccess.pdb
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\ServiceLayer.pdb
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\EntityFramework.xml
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\bin\EntityFramework.SqlServer.xml
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\obj\Debug\WebService.csprojResolveAssemblyReference.cache
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\obj\Debug\WebService.dll
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebService\obj\Debug\WebService.pdb

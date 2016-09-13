@@ -59,7 +59,6 @@
     <Compile Include="Repository\RestaurantsRepository.cs" />
     <Compile Include="Repository\UsersRepository.cs" />
     <Compile Include="RestaurantsDbContext.cs" />
-    <Compile Include="Service\Auth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,7 +1,7 @@
 ﻿namespace Restaurants.Models
 {
     using DataAccess.Entity;
-    using DataAccess.Service;
+    using ServiceLayer.Services;
     using System.Web;
 
     public static class AuthenticationManager
@@ -10,25 +10,25 @@
         {
             get
             {
-                Auth auth = null;
+                AuthService auth = null;
 
                 if (HttpContext.Current != null && HttpContext.Current.Session["LoggedUser"] == null)
-                    HttpContext.Current.Session["LoggedUser"] = new Auth();
+                    HttpContext.Current.Session["LoggedUser"] = new AuthService();
 
-                auth = (Auth)HttpContext.Current.Session["LoggedUser"];
+                auth = (AuthService)HttpContext.Current.Session["LoggedUser"];
                 return auth.LoggedUser;
             }
         }
 
         public static void Authenticate(string username, string password)
         {
-            Auth authenticationService = null;
+            AuthService authenticationService = null;
 
             if (HttpContext.Current != null && HttpContext.Current.Session["LoggedUser"] == null)
-                HttpContext.Current.Session["LoggedUser"] = new Auth();
+                HttpContext.Current.Session["LoggedUser"] = new AuthService();
 
-            authenticationService = (Auth)HttpContext.Current.Session["LoggedUser"];
-            authenticationService.Authenticate(username, password);
+            authenticationService = (AuthService)HttpContext.Current.Session["LoggedUser"];
+            authenticationService.AuthenticateUser(username, password);
         }
 
         public static void Logout()

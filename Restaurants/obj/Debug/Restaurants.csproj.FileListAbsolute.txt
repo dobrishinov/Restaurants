@@ -66,6 +66,7 @@ C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restauran
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\Newtonsoft.Json.dll
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\ServiceLayer.dll
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\System.Web.Helpers.dll
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\System.Web.Mvc.dll
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\System.Web.Optimization.dll
@@ -75,6 +76,7 @@ C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restauran
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\System.Web.WebPages.Razor.dll
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\WebGrease.dll
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\DataAccess.pdb
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\ServiceLayer.pdb
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\EntityFramework.xml
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\EntityFramework.SqlServer.xml
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\Restaurants\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
