@@ -10,7 +10,6 @@
     using ViewModels;
     using ViewModels.Users;
 
-    [AdminAuthentication]
     public class UsersController : BaseController<UserEntity, UsersEditVM, UsersListVM, UsersFilterVM>
     {
         public override BaseRepository<UserEntity> CreateRepository()

@@ -21,6 +21,11 @@
             return service.GetAll().ToList();
         }
 
+        public int Count()
+        {
+            return service.Count();
+        }
+
         public RestaurantEntity GetById(int id)
         {
             return service.GetById(id);

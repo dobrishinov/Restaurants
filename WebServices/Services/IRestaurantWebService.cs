@@ -19,6 +19,9 @@
         List<RestaurantEntity> GetAll();
 
         [OperationContract]
+        int Count();
+
+        [OperationContract]
         void Save(RestaurantEntity entity);
 
         [OperationContract]

@@ -1,4 +1,3 @@
-C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServices\obj\Debug\WebServices.csprojResolveAssemblyReference.cache
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServices\bin\WebServices.dll.config
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServices\bin\WebServices.dll
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServices\bin\WebServices.pdb
@@ -10,5 +9,6 @@ C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServic
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServices\bin\ServiceLayer.pdb
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServices\bin\EntityFramework.xml
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServices\bin\EntityFramework.SqlServer.xml
+C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServices\obj\Debug\WebServices.csprojResolveAssemblyReference.cache
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServices\obj\Debug\WebServices.dll
 C:\Users\Dobrishinov\Documents\Visual Studio 2015\Projects\Restaurants\WebServices\obj\Debug\WebServices.pdb
